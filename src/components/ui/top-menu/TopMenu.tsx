@@ -1,9 +1,11 @@
+import { IoCartOutline, IoSearchOutline } from 'react-icons/io5'
 import { titleFont } from '@/config/fonts'
+import { ItemMenu } from './ItemMenu'
 import Link from 'next/link'
 import React from 'react'
-import { IoCartOutline, IoSearchOutline } from 'react-icons/io5'
 
 export const TopMenu = () => {
+
     return (
         <div className='flex px-5 justify-between items-center w-full'>
             {/* Logo */}
@@ -42,10 +44,7 @@ export const TopMenu = () => {
                     </div>
                 </Link>
 
-                <button className='m-2 p-2 rounded-md transition-all
-                hover:bg-gray-100 '>
-                    Menu
-                </button>
+                <ItemMenu />
             </div>
         </div>
     )

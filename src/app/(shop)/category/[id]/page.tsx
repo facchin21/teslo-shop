@@ -1,8 +1,26 @@
+import { Title } from "@/components";
+import { notFound } from "next/navigation";
 
-export default function CategoryPage() {
+interface Props {
+  params: {
+    id: string;
+  }
+}
+
+
+export default function CategoryPage({ params }: Props) {
+  const { id } = params;
+
+  if( id === 'kids'){
+    notFound();
+  }
+  
   return (
-    <div>
-      <h1>Category Page</h1>
-    </div>
+    <>
+      <Title 
+        title='Tienda'
+        subtitle="Todos los productos"
+        className=""/>
+    </>
   );
 }
