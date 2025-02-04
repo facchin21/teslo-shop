@@ -13,4 +13,5 @@ export { PageNotFound } from './ui/not-found/PageNotFound';
 export { ItemMenu } from './ui/top-menu/ItemMenu';
 export { TopMenu } from './ui/top-menu/TopMenu';
 export { Sidebar } from './ui/sidebar/Sidebar'
+export { Footer } from './ui/footer/Footer';
 export { Title } from './ui/title/Title';
