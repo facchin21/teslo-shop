@@ -10,6 +10,7 @@ export { ProductSlideshow } from './product/slideshow/ProductSlideshow';
 export { SizeSelector } from './product/size-selector/SizeSelector'
 export { ProductGrid } from './products/product-grid/ProductGrid';
 export { PageNotFound } from './ui/not-found/PageNotFound';
+export { Pagination } from './ui/pagination/Pagination';
 export { ItemMenu } from './ui/top-menu/ItemMenu';
 export { TopMenu } from './ui/top-menu/TopMenu';
 export { Sidebar } from './ui/sidebar/Sidebar'
