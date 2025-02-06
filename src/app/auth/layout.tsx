@@ -7,9 +7,9 @@ export default async function ShopLayout({ children }: {
 
     const session = await auth();
 
-    if( session?.user) {
-        redirect('/')
-    }
+        if( session?.user) {
+            redirect('/')
+        }
 
     return (
         <main className="flex justify-center">

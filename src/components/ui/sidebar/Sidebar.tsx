@@ -5,11 +5,15 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import React from 'react'
 import { logout } from '@/actions'
+import { useSession } from 'next-auth/react'
 
 export function Sidebar() {
 
     const isSideMenuOpen = useUiStore(state => state.isSideMenuOpen)
     const closeMenu = useUiStore(state => state.closeSideMenu)
+
+    const { data: session } = useSession();
+    const isAuthenticated = !!session?.user;
 
 
     return (
@@ -71,18 +75,28 @@ export function Sidebar() {
                     <IoTicketOutline size={30} />
                     <span className='ml-3 text-xl'>Ordenes</span>
                 </Link>
-                <Link
-                    href='/auth/login'
-                    className='flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all'>
-                    <IoLogInOutline size={30} />
-                    <span className='ml-3 text-xl'>Ingresar</span>
-                </Link>
-                <button
-                    onClick={() => logout()}
-                    className='w-full flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all'>
-                    <IoLogOutOutline size={30} />
-                    <span className='ml-3 text-xl'>Salir</span>
-                </button>
+
+                {
+                    isAuthenticated && (
+                        <Link
+                            href='/auth/login'
+                            onClick={closeMenu}
+                            className='flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all'>
+                            <IoLogInOutline size={30} />
+                            <span className='ml-3 text-xl'>Ingresar</span>
+                        </Link>
+                    )
+                }
+                {
+                    !isAuthenticated && (
+                        <button
+                            onClick={() => logout()}
+                            className='w-full flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all'>
+                            <IoLogOutOutline size={30} />
+                            <span className='ml-3 text-xl'>Salir</span>
+                        </button>
+                    )
+                }
 
 
                 {/* Line Separator */}

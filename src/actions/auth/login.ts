@@ -9,13 +9,14 @@ export async function authenticate(
 ) {
     try {
 
-        await signIn('credentials', Object.fromEntries(formData));
+        await signIn('credentials', {
+            ...Object.fromEntries(formData),
+            redirect: false,
+        });
+        return 'success';
 
-    } catch (error) {
-        // if ((error as Error).message.includes('Invalid credentials')) {
-        // }
+    } catch {
         return 'CredentialsSignin'
-        // throw error;
     }
 
 }

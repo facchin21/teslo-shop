@@ -6,11 +6,21 @@ import { authenticate } from '@/actions';
 import { useFormState, useFormStatus } from 'react-dom';
 import Link from 'next/link';
 import clsx from 'clsx';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 
 export function LoginForm() {
 
     const [state, dispatch] = useFormState(authenticate, undefined);
+    const router = useRouter();
+
+
+    useEffect(() => {
+        if (state === 'success') {
+            router.replace('/')
+        }
+    }, [state])
 
     return (
         <form action={dispatch}
@@ -73,7 +83,7 @@ function LoginButton() {
                     "btn-primary": !pending,
                     "btn-disabled": pending
                 })}
-                disabled={pending}>
+            disabled={pending}>
             Ingresar
         </button>
     )

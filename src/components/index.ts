@@ -18,3 +18,5 @@ export { TopMenu } from './ui/top-menu/TopMenu';
 export { Sidebar } from './ui/sidebar/Sidebar'
 export { Footer } from './ui/footer/Footer';
 export { Title } from './ui/title/Title';
+
+export * from './provider/Provider';
